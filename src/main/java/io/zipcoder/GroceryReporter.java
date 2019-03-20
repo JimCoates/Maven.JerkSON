@@ -62,13 +62,17 @@ public class GroceryReporter {
         return counter;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
+    public void priceItemCountForAllCategories(){
         getItemAndPriceCount("milk", itemList);
         getItemAndPriceCount("bread", itemList);
         getItemAndPriceCount("cookies", itemList);
         getItemAndPriceCount("apples", itemList);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        priceItemCountForAllCategories();
 
         for (Map.Entry<String, Integer> entry: mapOfOutput.entrySet()) {
             builder.append("name:"+"    "+entry.getKey() + "        " + "seen: " + entry.getValue() + " times" + "\n" +
@@ -76,4 +80,6 @@ public class GroceryReporter {
         }
         return builder.toString();
     }
+
+
 }
